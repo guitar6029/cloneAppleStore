@@ -1,11 +1,11 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
-const Navbar = () => {
+const Sidebar = () => {
   const { logout } = useAuth0();
   
   return (
-    <div className="flex flex-row justify-between">
-      <h2>Navbar</h2>
+    <div className="flex flex-col item-center">
+      <h2>Sidebar</h2>
       <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin + '/' } })}>
         Logout
       </button>
@@ -13,4 +13,4 @@ const Navbar = () => {
   );
 }
 
-export default Navbar;
+export default Sidebar;
