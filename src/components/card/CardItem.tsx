@@ -42,7 +42,7 @@ const CardItem = ({
       <div className="image-container h-full rounded-t-lg"></div>
       <div className="flex flex-col gap-1 mt-2">
         <h2 className="text-xl xs:text-sm sm:text-sm md:text-md lg:text-lg font-bold text-white">{title}</h2>
-        <h3 style={smallTitleStyle} className="text-md text-gray-500">{smallTitle}</h3>
+        <h3 style={smallTitleStyle} className="text-md text-gray-500">Rating {smallTitle}</h3>
       </div>
       <div className="flex flex-row justify-between items-center mt-auto gap-2">
         <h3 className="text-5xl xs:text-md sm:text-lg md:text-2xl lg:text-3xl font-semibold text-[#c1b264] group-hover:text-[#fff17b] transition duration-300 ease-out">${price}</h3>

@@ -47,7 +47,7 @@ const Sidebar = () => {
         <Link to="/cart">
           <div className="flex flex-row">
             <PiBag className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
-            <div style={cartNotEmptyIndicatorStyle}></div>
+            {!checkIfCartIsEmpty && <div style={cartNotEmptyIndicatorStyle}></div>}
 
           </div>
         </Link>
