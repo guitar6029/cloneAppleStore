@@ -13,6 +13,9 @@ const customTextStyle = { color: themeColors.textSection };
 
 const Home: React.FC = () => {
 
+    //set tab name 
+    document.title = "Home";
+
     const { handleAction } = useCartItem();
 
     const handlePrimaryAction = (event?: string) => {
@@ -27,9 +30,9 @@ const Home: React.FC = () => {
     return (
         <div className="flex p-10 flex-col gap-10 self-center min-h-screen">
             <div className="flex flex-col gap-4">
-                <h3 className="text-7xl text-white font-extrabold">LET&apos;S FIND THE</h3>
-                <h3 style={{ color: themeColors.importantText }} className="text-7xl text-white font-extrabold">BEST EQUIPMENT</h3>
-                <h3 className="text-7xl font-extrabold text-white">FOR YOU</h3>
+                <h3 className="text-basel sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">LET&apos;S FIND THE</h3>
+                <h3 style={{ color: themeColors.importantText }} className="text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">BEST EQUIPMENT</h3>
+                <h3 className="text-base sm:text-lg md:text-2xl lg:text-4xl font-extrabold text-white">FOR YOU</h3>
             </div>
 
             <div className="items-container flex flex-wrap gap-4">
@@ -44,11 +47,12 @@ const Home: React.FC = () => {
                         icon2={HeartIcon}
                         icon1Size={30}
                         icon2Size={30}
-                        actionPrimary={(eventType:string) => handleAction(eventType, { id: item.id, name: item.name, price: item.price })}
-                        actionSecondary={(eventType:string) => handleAction(eventType, { id: item.id, name: item.name, price: item.price })}
+                        actionPrimary={(eventType: string) => handleAction(eventType, { id: item.id, name: item.name, price: item.price })}
+                        actionSecondary={(eventType: string) => handleAction(eventType, { id: item.id, name: item.name, price: item.price })}
                         actionPrimaryType="cart"
                         actionSecondaryType="heart"
                     />
+
                 ))}
 
 

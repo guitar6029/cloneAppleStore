@@ -8,6 +8,7 @@ import ProtectedRoute from './auth/ProtectedRoute'
 import Login from './pages/Login'
 import Account from './pages/Account'
 import Cart from './pages/Cart'
+import Favorites from './pages/Favorites'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Route path="/" element={< ProtectedRoute > <Layout /> </ProtectedRoute>} >
         <Route path="/home" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/account" element={<Account />} />
         <Route path="*" element={<Page404 />} />
       </Route>

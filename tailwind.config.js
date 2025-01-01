@@ -10,6 +10,7 @@ export default {
         'layout': '300px 1fr',
         'layout-md': '200px 1fr',
         'layout-sm': '150px 1fr',
+        'layout-xs': '100px 1fr',
       }
     },
   },

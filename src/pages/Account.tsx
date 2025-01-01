@@ -7,6 +7,10 @@ const Account: React.FC = () => {
     const [userInfo, setUserInfo] = useState<User | null>(null);
     const { user, isLoading, logout } = useAuth0();
 
+
+    document.title = "Account";
+
+
     useEffect(() => {
         if (!isLoading && user) {
             setUserInfo(user);

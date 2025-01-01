@@ -6,7 +6,9 @@ import { RootState } from '../store'; // Adjust the path to your store
 
 const Cart: React.FC = () => {
   const cartItems = useSelector((state: RootState) => getCartItems(state));
-  console.log('cartItems', cartItems);
+  document.title = "Shoping Cart";
+
+
 
   return (
     <div className="flex flex-col min-h-screen">
