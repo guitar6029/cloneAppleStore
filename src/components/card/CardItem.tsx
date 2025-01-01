@@ -1,4 +1,3 @@
-import { HeartIcon, BagIcon } from "../../utils/icons";
 import { themeColors } from "../../utils/color/colorUtil";
 
 type CardItemsProps = {

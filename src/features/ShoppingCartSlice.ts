@@ -51,4 +51,7 @@ export const { addToCart, removeFromShoppingCart, clearShoppingCart } = shopping
 //getter for shopping cart items
 export const getCartItems = (state: RootState) => state.cart.shoppingCart;
 
+// check if shopping cart is empty
+export const isShoppingCartEmpty = (state: RootState) => state.cart.shoppingCart.length === 0;
+
 export default shoppingCartSlice.reducer;
