@@ -8,6 +8,8 @@ export default {
     extend: {
       gridTemplateColumns: {
         'layout': '300px 1fr',
+        'layout-md': '200px 1fr',
+        'layout-sm': '150px 1fr',
       }
     },
   },
