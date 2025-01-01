@@ -1,15 +1,13 @@
-import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
+const Login = () => {
 
-const LandingPage = () => {
-
+    const { loginWithRedirect } = useAuth0();
 
     const cardStyle = {
         width: "fit-content",
         height: "150px"
     }
-
-
 
     return (
         <div className="flex flex-col items-center justify-center h-screen">
@@ -18,22 +16,19 @@ const LandingPage = () => {
              hover:bg-[#4d4d4f] transition duration-300 ease-out rounded-lg gap-4 shadow-lg p-8">
 
 
-                <Link to="/login">
+                <button
+                    onClick={() => loginWithRedirect()}
 
-                    <button
-
-
-                        className=" text-4xl w-full rounded-lg p-2 
+                    className=" text-4xl w-full rounded-lg p-2 
                         font-semibold
                         text-[#c1b264]
                         group-hover:text-[#fff17b] 
                         transition duration-300 ease-out "
-                    >SIGN IN
-                    </button>
-                </Link>
+                >WELCOME
+                </button>
 
             </div>
         </div>);
 }
-
-export default LandingPage;
+ 
+export default Login;
