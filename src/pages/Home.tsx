@@ -60,7 +60,7 @@ const Home: React.FC = () => {
 
             <div className="flex flex-col gap-12">
 
-                <p style={customTextStyle} className="text-2xl">{CUSTOM_TEXT}</p>
+                <p style={customTextStyle} className="text-2xl xs:text-sm sm:text-md md:text-lg xl:text-2xl  ">{CUSTOM_TEXT}</p>
 
             </div>
 

@@ -1,4 +1,3 @@
-//import { AiOutlineMessage } from "react-icons/ai";
 import { CiSearch, CiHeart } from "react-icons/ci";
 import { FaStore } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -34,18 +33,16 @@ const Sidebar = () => {
           <PiBag className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
         </Link>
 
-        {/* <AiOutlineMessage className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} /> */}
-
-
-      </div>
-
-
-      <div className="flex flex-row items-center justify-center p-2">
         <Link to="/account">
           <MdAccountCircle className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
 
         </Link>
+
+
       </div>
+
+
+
 
     </div>
   );
