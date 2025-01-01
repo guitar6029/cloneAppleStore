@@ -1,6 +1,12 @@
 import { themeColors } from "../utils/color/colorUtil";
 import CardItem from "../components/card/CardItem";
 import { HeartIcon, BagIcon } from "../utils/icons";
+import Button from "../components/buttons/Button";
+
+
+
+const CUSTOM_TEXT = "At our store, you'll find the latest and greatest gadgets designed to enhance your lifestyle and keep you ahead of the tech curve. From cutting-edge electronics to innovative accessories, we’ve got everything you need to stay connected and entertained. Discover the future of technology with us!";
+const customTextStyle = { color: themeColors.textSection};
 
 const Home: React.FC = () => {
 
@@ -40,35 +46,46 @@ const Home: React.FC = () => {
                     actionSecondaryType="bag"
                 />
 
-                <CardItem 
-                    size="sm" 
-                    title="Speakers" 
-                    smallTitle="Speakers" 
-                    price={200} 
-                    icon1={HeartIcon} 
-                    icon2={BagIcon} 
-                    icon1Size={30} 
-                    icon2Size={30} 
-                    actionPrimary={handlePrimaryAction} 
-                    actionSecondary={handleSecondaryAction} 
-                    actionPrimaryType="heart" 
+                <CardItem
+                    size="sm"
+                    title="Speakers"
+                    smallTitle="Speakers"
+                    price={200}
+                    icon1={HeartIcon}
+                    icon2={BagIcon}
+                    icon1Size={30}
+                    icon2Size={30}
+                    actionPrimary={handlePrimaryAction}
+                    actionSecondary={handleSecondaryAction}
+                    actionPrimaryType="heart"
                     actionSecondaryType="bag"
                 />
 
-                    <CardItem 
-                    size="sm" 
-                    title="Microphone" 
-                    smallTitle="Microphone" 
-                    price={150} 
-                    icon1={HeartIcon} 
-                    icon2={BagIcon} 
-                    icon1Size={30} 
-                    icon2Size={30} 
-                    actionPrimary={handlePrimaryAction} 
-                    actionSecondary={handleSecondaryAction} 
-                    actionPrimaryType="heart" 
+                <CardItem
+                    size="sm"
+                    title="Microphone"
+                    smallTitle="Microphone"
+                    price={150}
+                    icon1={HeartIcon}
+                    icon2={BagIcon}
+                    icon1Size={30}
+                    icon2Size={30}
+                    actionPrimary={handlePrimaryAction}
+                    actionSecondary={handleSecondaryAction}
+                    actionPrimaryType="heart"
                     actionSecondaryType="bag" />
-      </div>
+            </div>
+
+            <div className="flex flex-col gap-12">
+            
+                <p style={customTextStyle} className="text-2xl">{CUSTOM_TEXT}</p>
+                
+            </div>
+            
+            <div className="w-[300px] flex flex-col gap-12">
+            <Button onClick={handlePrimaryAction} text="Explore More" size="md" typeBtn="primary" />
+
+            </div>
         </div>
     );
 }
