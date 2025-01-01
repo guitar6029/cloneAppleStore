@@ -2,7 +2,7 @@ import { themeColors } from "../utils/color/colorUtil";
 import CardItem from "../components/card/CardItem";
 import { HeartIcon, BagIcon } from "../utils/icons";
 import Button from "../components/buttons/Button";
-import { electronicsData1 } from "./ShoppingCart";
+import { data } from "../data/dummyData";
 import { PREVIEW_NUMBER_SIZE } from "../utils/Numbers/constants";
 import useCartItem from "../hooks/useCartItem";
 
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
         }
     }
 
-    const previewItems = electronicsData1.slice(0, PREVIEW_NUMBER_SIZE);
+    const previewItems = data.slice(0, PREVIEW_NUMBER_SIZE);
     console.log(previewItems);
 
     return (

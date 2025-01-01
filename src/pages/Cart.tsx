@@ -6,12 +6,13 @@ import { RootState } from '../store';
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import { themeColors } from '../utils/color/colorUtil';
 import useCartItem from "../hooks/useCartItem";
+import Button from '../components/buttons/Button';
 
 const Cart: React.FC = () => {
   const cartItems = useSelector((state: RootState) => getCartItems(state));
   document.title = "Shopping Cart";
 
-  const { handleAction } = useCartItem();
+  const { handleAction, clearCart } = useCartItem();
 
   const priceStyle: React.CSSProperties = {
     color: themeColors.importantText
@@ -35,12 +36,19 @@ const Cart: React.FC = () => {
               <span style={priceStyle} className="self-center justify-self-end font-semibold">${item.price}</span>
             </div>
           ))
+
         ) : (
           <div className="flex justify-center p-10">
             <span className="text-white text-base xl:text-2xl lg:text-xl md:text-lg">
               Your cart is empty. Go find something to buy
             </span>
           </div>
+        )}
+        {cartItems.length > 0 && (
+          <div className="flex flex-row">
+            <Button text="CLEAR CART" typeBtn="primary" onClick={() => clearCart(cartItems)} size="md" />
+          </div>
+
         )}
       </div>
     </div>

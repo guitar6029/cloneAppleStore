@@ -22,6 +22,9 @@ export const shoppingCartSlice = createSlice({
     name: "shoppingCart",
     initialState,
     reducers: {
+        clearShoppingCart: (state ) => {
+            state.shoppingCart = [];  
+        },
         increaseQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
           //first check if the item exists
           const existingItem = state.shoppingCart.find(item => item.id === action.payload.id);
@@ -55,15 +58,13 @@ export const shoppingCartSlice = createSlice({
         },
         removeFromShoppingCart: (state, action: PayloadAction<any>) => {
             state.shoppingCart = state.shoppingCart.filter((item: any) => item.id !== action.payload);
-        },
-        clearShoppingCart: (state) => {
-            state.shoppingCart = [];
         }
+       
     }
 })
 
 
-export const { increaseQuantity, decreaseQuantity, addToCart, removeFromShoppingCart, clearShoppingCart } = shoppingCartSlice.actions;
+export const { clearShoppingCart, increaseQuantity, decreaseQuantity, addToCart, removeFromShoppingCart } = shoppingCartSlice.actions;
 
 //getter for shopping cart items
 export const getCartItems = (state: RootState) => state.cart.shoppingCart;

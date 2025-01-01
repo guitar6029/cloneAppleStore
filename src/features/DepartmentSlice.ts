@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { electronicsData } from "../data/dummyData";
+import { data } from "../data/dummyData";
 
 export interface DepartmentItem {
     id: number;
@@ -8,6 +8,7 @@ export interface DepartmentItem {
     price: number;
     rating: number;
     quantity: number;
+    originalQuantity: number
 }
 
 export interface DepartmentState {
@@ -15,13 +16,17 @@ export interface DepartmentState {
 }
 
 const initialState: DepartmentState = {
-    items: [...electronicsData], // Combine your electronics data
+    items: data.map(item => ({ ...item })),
 };
 
 export const departmentSlice = createSlice({
     name: "department",
     initialState,
     reducers: {
+        resetQuantity: ( state, action: PayloadAction<Array<DepartmentItem>>) => {
+          // reset quantity values for the items in the payload
+          state.items = state.items.map(item => ({ ...item, quantity: item.originalQuantity}));
+        },
         updateQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
             const item = state.items.find(item => item.id === action.payload.id);
             if (item) {
@@ -37,6 +42,6 @@ export const departmentSlice = createSlice({
     },
 });
 
-export const { updateQuantity, addItem, removeItem } = departmentSlice.actions;
+export const { resetQuantity, updateQuantity, addItem, removeItem } = departmentSlice.actions;
 
 export default departmentSlice.reducer;

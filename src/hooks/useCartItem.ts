@@ -1,11 +1,16 @@
 import { useDispatch } from "react-redux";
-import { addToCart, increaseQuantity, decreaseQuantity } from "../features/ShoppingCartSlice";
-import { updateQuantity } from "../features/DepartmentSlice";
+import { addToCart, increaseQuantity, decreaseQuantity, clearShoppingCart } from "../features/ShoppingCartSlice";
+import { updateQuantity, resetQuantity } from "../features/DepartmentSlice";
 
 
 const useCartItem = () => {
 
     const dispatch = useDispatch();
+
+    const clearCart = (itemsToClear: Array<any>) => {
+        dispatch(clearShoppingCart());
+        dispatch(resetQuantity(itemsToClear));
+    }
 
     const handleAction = (type: string, item: any) => {
         
@@ -40,12 +45,13 @@ const useCartItem = () => {
                     quantity: item.quantity - 1
                 }
             ));
-        } else {
+        } 
+        else {
             console.log('Unknown type');
         }
     };
 
-    return { handleAction };
+    return { handleAction, clearCart };
 }
 
 
