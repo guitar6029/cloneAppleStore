@@ -2,6 +2,10 @@ import { themeColors } from "../utils/color/colorUtil";
 import CardItem from "../components/card/CardItem";
 import { HeartIcon, BagIcon } from "../utils/icons";
 import Button from "../components/buttons/Button";
+import { useSelector, useDispatch } from 'react-redux'
+import { addToCart, removeFromShoppingCart } from "../features/ShoppingCartSlice";
+import { updateQuantity } from "../features/DepartmentSlice";
+import { electronicsData1 } from "./ShoppingCart";
 
 
 
@@ -21,6 +25,9 @@ const Home: React.FC = () => {
             console.log(event);
         }
     }
+
+    const previewItems = electronicsData1.slice(0, 5);
+    console.log(previewItems);
 
     return (
         <div className="flex p-10 flex-col gap-10 self-center min-h-screen">
