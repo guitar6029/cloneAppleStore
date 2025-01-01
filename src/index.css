@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --main-bg-color: #242529;
+  --important-text: #fff17b; 
+  --secondary-bg-card-color: #393a3e; 
+  --panel-bg-color: #c0c0c0;
+  --outline-color: #2f3034;
+}
+
 html, body {
   margin: 0;
   padding: 0;
 }
 
+body {
+  background-color: var(--main-bg-color);
+}
