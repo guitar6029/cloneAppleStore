@@ -4,14 +4,14 @@ import { themeColors } from "../../utils/color/colorUtil";
 type CardItemsProps = {
   size?: "sm" | "lg",
   title: string,
-  smallTitle: string,
+  smallTitle: string | number,
   price: number,
-  icon1: React.ComponentType<{ size: number }>,
-  icon2: React.ComponentType<{ size: number }>,
+  icon1?: React.ComponentType<{ size: number }>,
+  icon2?: React.ComponentType<{ size: number }>,
   icon1Size?: number,
   icon2Size?: number,
-  actionPrimary: (event?: string) => void,
-  actionSecondary: (event?: string) => void,
+  actionPrimary: (event: string) => void,
+  actionSecondary: (event: string) => void,
   actionPrimaryType: string,
   actionSecondaryType: string,
 };
@@ -53,10 +53,10 @@ const CardItem = ({
         <h3 className="text-5xl font-semibold text-[#c1b264] group-hover:text-[#fff17b] transition duration-300 ease-out">${price}</h3>
         <div className="flex flex-row gap-2">
           <span className="cursor-pointer rounded-full p-2 bg-[#4d4d4f] text-white hover:bg-white transition duration-300 ease-out hover:text-[#4d4d4f] " onClick={() => actionPrimary(actionPrimaryType)}>
-            <Icon1 size={icon1Size} />
+           {Icon1 && <Icon1 size={icon1Size} />}
           </span>
           <span className="cursor-pointer rounded-full p-2 bg-[#4d4d4f] text-white hover:bg-white transition duration-300 ease-out hover:text-[#4d4d4f]" onClick={() => actionSecondary(actionSecondaryType)}>
-            <Icon2 size={icon2Size} />
+            {Icon2 && <Icon2 size={icon2Size} />}
           </span>
         </div>
       </div>

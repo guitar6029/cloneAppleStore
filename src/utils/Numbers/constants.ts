@@ -1,0 +1,1 @@
+export const PREVIEW_NUMBER_SIZE = 4;

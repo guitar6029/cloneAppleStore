@@ -2,17 +2,18 @@ import { themeColors } from "../utils/color/colorUtil";
 import CardItem from "../components/card/CardItem";
 import { HeartIcon, BagIcon } from "../utils/icons";
 import Button from "../components/buttons/Button";
-import { useSelector, useDispatch } from 'react-redux'
-import { addToCart, removeFromShoppingCart } from "../features/ShoppingCartSlice";
-import { updateQuantity } from "../features/DepartmentSlice";
 import { electronicsData1 } from "./ShoppingCart";
+import { PREVIEW_NUMBER_SIZE } from "../utils/Numbers/constants";
+import useCartItem from "../hooks/useCartItem";
 
 
 
 const CUSTOM_TEXT = "At our store, you'll find the latest and greatest gadgets designed to enhance your lifestyle and keep you ahead of the tech curve. From cutting-edge electronics to innovative accessories, we’ve got everything you need to stay connected and entertained. Discover the future of technology with us!";
-const customTextStyle = { color: themeColors.textSection};
+const customTextStyle = { color: themeColors.textSection };
 
 const Home: React.FC = () => {
+
+    const { handleAction } = useCartItem();
 
     const handlePrimaryAction = (event?: string) => {
         if (event) {
@@ -26,7 +27,7 @@ const Home: React.FC = () => {
         }
     }
 
-    const previewItems = electronicsData1.slice(0, 5);
+    const previewItems = electronicsData1.slice(0, PREVIEW_NUMBER_SIZE);
     console.log(previewItems);
 
     return (
@@ -38,59 +39,35 @@ const Home: React.FC = () => {
             </div>
 
             <div className="items-container flex flex-wrap gap-4">
-                <CardItem
-                    size="sm"
-                    title="Headphone"
-                    smallTitle="Headphone"
-                    price={100}
-                    icon1={HeartIcon}
-                    icon2={BagIcon}
-                    icon1Size={30}
-                    icon2Size={30}
-                    actionPrimary={handlePrimaryAction}
-                    actionSecondary={handleSecondaryAction}
-                    actionPrimaryType="heart"
-                    actionSecondaryType="bag"
-                />
+                {previewItems.map((item, index) => (
+                    <CardItem
+                        key={index}
+                        size="sm"
+                        title={item.name}
+                        smallTitle={item.rating}
+                        price={item.price}
+                        icon1={BagIcon}
+                        icon2={HeartIcon}
+                        icon1Size={30}
+                        icon2Size={30}
+                        actionPrimary={(eventType:string) => handleAction(eventType, item)}
+                        actionSecondary={(eventType:string) => handleAction(eventType, item)}
+                        actionPrimaryType="cart"
+                        actionSecondaryType="heart"
+                    />
+                ))}
 
-                <CardItem
-                    size="sm"
-                    title="Speakers"
-                    smallTitle="Speakers"
-                    price={200}
-                    icon1={HeartIcon}
-                    icon2={BagIcon}
-                    icon1Size={30}
-                    icon2Size={30}
-                    actionPrimary={handlePrimaryAction}
-                    actionSecondary={handleSecondaryAction}
-                    actionPrimaryType="heart"
-                    actionSecondaryType="bag"
-                />
 
-                <CardItem
-                    size="sm"
-                    title="Microphone"
-                    smallTitle="Microphone"
-                    price={150}
-                    icon1={HeartIcon}
-                    icon2={BagIcon}
-                    icon1Size={30}
-                    icon2Size={30}
-                    actionPrimary={handlePrimaryAction}
-                    actionSecondary={handleSecondaryAction}
-                    actionPrimaryType="heart"
-                    actionSecondaryType="bag" />
             </div>
 
             <div className="flex flex-col gap-12">
-            
+
                 <p style={customTextStyle} className="text-2xl">{CUSTOM_TEXT}</p>
-                
+
             </div>
-            
+
             <div className="w-[300px] flex flex-col gap-12">
-            <Button onClick={handlePrimaryAction} text="Explore More" size="md" typeBtn="primary" />
+                <Button onClick={handlePrimaryAction} text="Explore More" size="md" typeBtn="primary" />
 
             </div>
         </div>
