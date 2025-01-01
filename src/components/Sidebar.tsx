@@ -11,8 +11,8 @@ const Sidebar = () => {
   const { logout } = useAuth0();
 
   return (
-    <div className="flex flex-col items-center justify-between p-10" style={{ borderRight: `2px solid ${themeColors.primaryGray}`, backgroundColor: themeColors.mainBgColor }}>
-      <div>
+    <div className="flex flex-col items-center   sm:justify-start xl:justify-between p-10" style={{ borderRight: `2px solid ${themeColors.primaryGray}`, backgroundColor: themeColors.mainBgColor }}>
+      <div className="flex flex-col sm:mb-2">
         <PiLightningFill size={40} color={themeColors.importantText} />
 
       </div>

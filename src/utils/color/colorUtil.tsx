@@ -6,6 +6,8 @@ export const themeColors = {
     panelBgColor: '#c0c0c0',
     outlineColor: '#2f3034',
     primaryGray: '#2f3034',
-    secondaryGray: '#8d8c8a'
+    secondaryGray: '#8d8c8a',
+    tertiaryGray :'#939395',
+    bgGrayIcon: '#4d4d4f'
     
 }
