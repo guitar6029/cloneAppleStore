@@ -21,22 +21,26 @@ const Sidebar = () => {
 
         <Link to="/home">
           <FaStore className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
-  
-        </Link>
-       
-          <CiSearch className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
-          <CiHeart className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
-          <PiBag className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
-          <AiOutlineMessage className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
 
-  
+        </Link>
+
+        <CiSearch className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
+        <CiHeart className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
+
+        <Link to="/cart">
+          <PiBag className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
+        </Link>
+
+        <AiOutlineMessage className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
+
+
       </div>
 
 
       <div className="flex flex-row items-center justify-center p-2">
         <Link to="/account">
-        <MdAccountCircle className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
-        
+          <MdAccountCircle className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
+
         </Link>
       </div>
       {/* <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin + '/' } })}>

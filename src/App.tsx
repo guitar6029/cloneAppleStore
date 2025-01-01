@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import LandingPage from './pages/LandingPage'
 import Layout from './components/Layout'
@@ -7,6 +7,7 @@ import Page404 from './pages/Page404'
 import ProtectedRoute from './auth/ProtectedRoute'
 import Login from './pages/Login'
 import Account from './pages/Account'
+import Cart from './pages/Cart'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       {/* Protected routes only for logged in users */}
       <Route path="/" element={< ProtectedRoute > <Layout /> </ProtectedRoute>} >
         <Route path="/home" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/account" element={<Account />} />
         <Route path="*" element={<Page404 />} />
       </Route>

@@ -21,12 +21,6 @@ const Home: React.FC = () => {
         }
     }
 
-    const handleSecondaryAction = (event?: string) => {
-        if (event) {
-            console.log(event);
-        }
-    }
-
     const previewItems = electronicsData1.slice(0, PREVIEW_NUMBER_SIZE);
     console.log(previewItems);
 
@@ -50,8 +44,8 @@ const Home: React.FC = () => {
                         icon2={HeartIcon}
                         icon1Size={30}
                         icon2Size={30}
-                        actionPrimary={(eventType:string) => handleAction(eventType, item)}
-                        actionSecondary={(eventType:string) => handleAction(eventType, item)}
+                        actionPrimary={(eventType:string) => handleAction(eventType, { id: item.id, name: item.name, price: item.price })}
+                        actionSecondary={(eventType:string) => handleAction(eventType, { id: item.id, name: item.name, price: item.price })}
                         actionPrimaryType="cart"
                         actionSecondaryType="heart"
                     />
