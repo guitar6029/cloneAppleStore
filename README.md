@@ -2,11 +2,13 @@ React | Tailwind Css | Auth0
 
 Hello, i took the concept design from dribble , i found a very cool design from 
 
-https://dribbble.com/shots/21287609-Apple-E-store-Concept
-
-make sure to check the m out : 
+make sure to check them out : 
 
 https://dribbble.com/batowebagency
+
+
+https://dribbble.com/shots/21287609-Apple-E-store-Concept
+
 
 This is the main screen : 
 
