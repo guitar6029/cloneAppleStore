@@ -49,7 +49,7 @@ const CardItem = ({
   
 
   return (
-    <div className="cursor-pointer xs:w-[150px] sm:w-[200px] md:w-[300px] lg:w-[400px] xl:w-[500px]   group bg-[#242529] border-2 border-[#4d4d4f]  hover:bg-[#4d4d4f] transition duration-300 ease-out     rounded-lg flex flex-col gap-4 shadow-lg p-8">
+    <div className="cursor-pointer xs:w-full sm:w-full md:w-full lg:w-full xl:w-[300px] 2xl:w-[400px]   group bg-[#242529] border-2 border-[#4d4d4f]  hover:bg-[#4d4d4f] transition duration-300 ease-out     rounded-lg flex flex-col gap-4 shadow-lg p-8">
       <div className="image-container h-full rounded-t-lg"></div>
       <div className="flex flex-col gap-1 mt-2">
         <h2 className="text-xl xs:text-sm sm:text-sm md:text-md lg:text-lg font-bold text-white">{title}</h2>
