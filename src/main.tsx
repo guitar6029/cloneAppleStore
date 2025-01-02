@@ -20,6 +20,8 @@ createRoot(document.getElementById('root')!).render(
           authorizationParams={{
             redirect_uri: homeLink
           }}
+          useRefreshTokens={true}
+          cacheLocation="localstorage"
 
         >
           <App />

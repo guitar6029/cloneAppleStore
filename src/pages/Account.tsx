@@ -33,7 +33,7 @@ const Account: React.FC = () => {
                     {userInfo?.picture && <img className="w-16 h-16" src={userInfo.picture} alt="User Profile" />}
                 </div>
             </div>
-            <div className="w-[200px] p-10 flex flex-col gap-10">
+            <div className="w-full p-10 flex flex-col gap-10">
                 <Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} text="Sign Out" size="md" typeBtn="primary" />
 
             </div>

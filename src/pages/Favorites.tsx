@@ -36,7 +36,7 @@ const Favorites: React.FC = () => {
                 )}
             </div>
             {favoriteItems.length > 0 && (
-                <div className="flex flex-row">
+                <div className="flex flex-row p-10">
                     <Button text="CLEAR FAVORITES" typeBtn="primary" onClick={() => clearFavorites(favoriteItems)} size="md" />
                 </div>
             )}
