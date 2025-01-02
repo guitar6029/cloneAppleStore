@@ -28,7 +28,7 @@ const Home: React.FC = () => {
     return (
         <div className="flex p-10 flex-col gap-10 self-center min-h-screen">
             <div className="flex flex-col gap-4">
-                <h3 className="text-basel sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">LET&apos;S FIND THE</h3>
+                <h3 className="text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">LET&apos;S FIND THE</h3>
                 <h3 style={{ color: themeColors.importantText }} className="text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">BEST EQUIPMENT</h3>
                 <h3 className="text-base sm:text-lg md:text-2xl lg:text-4xl font-extrabold text-white">FOR YOU</h3>
             </div>

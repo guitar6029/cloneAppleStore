@@ -19,7 +19,7 @@ const Button = ({text, size, typeBtn, onClick}: ButtonTypeProps) => {
     }
     
     return (  
-        <button style={btnStyles} className="rounded-lg p-2 font-semibold " onClick={onClick}>{text}</button>
+        <button style={btnStyles} className="rounded-lg p-2 font-semibold sm:w-full md:w-full lg:w-1/3 xl:w-1/4 " onClick={onClick}>{text}</button>
     );
 }
  

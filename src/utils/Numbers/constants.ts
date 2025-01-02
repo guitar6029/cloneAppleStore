@@ -1,1 +1,2 @@
 export const PREVIEW_NUMBER_SIZE = 4;
+export const COMMON_SEARCH_NUMBER_SIZE = 5;

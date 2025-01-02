@@ -2,10 +2,9 @@ import { themeColors } from "../utils/color/colorUtil";
 
 type TitleProps = {
     title: string;
-    size: string;
 }
 
-const TitleComponent : React.FC<TitleProps> = ({title, size = "text-7xl"} : TitleProps) => {
+const TitleComponent : React.FC<TitleProps> = ({title} : TitleProps) => {
     
     const themeStyle = {
             color: themeColors.importantText,
@@ -13,7 +12,7 @@ const TitleComponent : React.FC<TitleProps> = ({title, size = "text-7xl"} : Titl
     
     
     return ( 
-        <h3 style={themeStyle} className={`${size} font-extrabold`}>
+        <h3 style={themeStyle} className="text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl font-extrabold">
         {title}
     </h3>  
      );

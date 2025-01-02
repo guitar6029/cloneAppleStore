@@ -21,9 +21,10 @@ const Cart: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex flex-col gap-2 p-10">
-        <TitleComponent title="YOUR CART" size="text-7xl" />
+        <TitleComponent title="YOUR CART" />
       </div>
-      <div className="flex flex-col gap-4 p-10">
+      <div className="flex flex-col gap-10 p-10 justify-between">
+
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
             <div key={item.id} className="grid grid-cols-3 gap-4 p-4 rounded-lg bg-[#4d4d4f] hover:bg-[#5B5B5D] transition duration-300 ease-out">
@@ -33,7 +34,7 @@ const Cart: React.FC = () => {
                 <span className="text-white">{item.quantity}</span>
                 <CiCirclePlus onClick={() => handleAction('increaseQuantity', item)} size={30} className="cursor-pointer text-white" />
               </div>
-              <span style={priceStyle} className="self-center justify-self-end font-semibold">${item.price}</span>
+              <span style={priceStyle} className="self-center justify-self-end font-semibold">${item.price * item.quantity}</span>
             </div>
           ))
 
@@ -45,8 +46,13 @@ const Cart: React.FC = () => {
           </div>
         )}
         {cartItems.length > 0 && (
-          <div className="flex flex-row">
+          <div className="flex lg:flex-row sm:flex-col sm:gap-5 items-center justify-between">
+            
             <Button text="CLEAR CART" typeBtn="primary" onClick={() => clearCart(cartItems)} size="md" />
+            <div className="flex flex-row gap-4">
+              <span className="text-white text-base sm:text-sm md:text-4xl lg:text-2xl xl:text-7xl font-bold ">TOTAL :</span>
+              <span className="text-white text-base sm:text-sm md:text-4xl lg:text-2xl xl:text-7xl font-bold ">${cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toLocaleString()}</span>
+            </div>
           </div>
 
         )}

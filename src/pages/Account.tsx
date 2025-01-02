@@ -25,7 +25,7 @@ const Account: React.FC = () => {
     return (
         <div className="flex flex-col justify-between  min-h-screen">
             <div className="flex flex-col gap-2 p-10">
-                <TitleComponent title="ACCOUNT" size="text-7xl" />
+                <TitleComponent title="ACCOUNT" />
                 <div className="flex flex-col gap-2">
                     <h3 className="text-4xl text-white font-extrabold">
                         {userInfo ? userInfo?.name : "User Name"}

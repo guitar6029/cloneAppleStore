@@ -17,7 +17,7 @@ const Favorites: React.FC = () => {
     return (
         <div className="flex flex-col min-h-screen">
             <div className="flex flex-col gap-2 p-10">
-                <TitleComponent title="FAVORITES" size="text-7xl" />
+                <TitleComponent title="FAVORITES" />
             </div>
             <div className="flex flex-col gap-4 p-10">
                 {favoriteItems.length > 0 ? (
