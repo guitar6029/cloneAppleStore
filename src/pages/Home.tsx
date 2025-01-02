@@ -3,7 +3,7 @@ import { HeartIcon, BagIcon } from "../utils/icons";
 import { Link } from "react-router-dom";
 import { PREVIEW_NUMBER_SIZE } from "../utils/Numbers/constants";
 import { themeColors } from "../utils/color/colorUtil";
-import { useReducer } from "react";
+import { useReducer, useMemo } from "react";
 import Button from "../components/buttons/Button";
 import CardItem from "../components/card/CardItem";
 import Preview from "../components/Preview";
@@ -41,9 +41,12 @@ const Home: React.FC = () => {
         }
     }
 
-    const previewItems = data.slice(0, PREVIEW_NUMBER_SIZE);
-    previewItems.sort(() => Math.random() - 0.5);
+    const previewItems = useMemo(() => {
+        const items = data.slice(0, PREVIEW_NUMBER_SIZE);
+        return items.sort(() => Math.random() - 0.5);
+    }, []);  
 
+    
     return (
         <>
             {/* PREVIEW */}
@@ -58,7 +61,7 @@ const Home: React.FC = () => {
                 <div className="flex flex-col gap-4">
                     <h3 className="text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">LET&apos;S FIND THE</h3>
                     <h3 style={{ color: themeColors.importantText }} className="text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">BEST EQUIPMENT</h3>
-                    <h3 className="text-base sm:text-lg md:text-2xl lg:text-4xl font-extrabold text-white">FOR YOU</h3>
+                    <h3 className="text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">FOR YOU</h3>
                 </div>
 
                 <div className="items-container flex flex-wrap gap-4">
