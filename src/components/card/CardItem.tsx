@@ -1,6 +1,16 @@
 import { themeColors } from "../../utils/color/colorUtil";
 
+type CardObjectType = {
+  id: number,
+  name: string,
+  price: number,
+  favorite: boolean,
+  originalQuantity: number
+  rating: number
+}
+
 type CardItemsProps = {
+  item: CardObjectType,
   size?: "sm" | "lg",
   title: string,
   smallTitle: string | number,
@@ -16,6 +26,7 @@ type CardItemsProps = {
 };
 
 const CardItem = ({
+  item,
   size = "sm",
   title,
   smallTitle,
@@ -50,9 +61,16 @@ const CardItem = ({
           <span className=" cursor-pointer rounded-full p-2 bg-[#4d4d4f] text-white hover:bg-white transition duration-300 ease-out hover:text-[#4d4d4f] " onClick={() => actionPrimary(actionPrimaryType)}>
            {Icon1 && <Icon1 size={icon1Size} />}
           </span>
+          {!item.favorite && (
           <span className="cursor-pointer rounded-full p-2 bg-[#4d4d4f] text-white hover:bg-white transition duration-300 ease-out hover:text-[#4d4d4f]" onClick={() => actionSecondary(actionSecondaryType)}>
             {Icon2 && <Icon2 size={icon2Size} />}
           </span>
+          )}
+          {item.favorite && (
+            <span className="cursor-pointer rounded-full p-2 bg-[#4d4d4f] text-[#fff17b] transition duration-300 ease-out hover:text-[#4d4d4f]" onClick={() => actionSecondary(actionSecondaryType)}>
+            {Icon2 && <Icon2 size={icon2Size} />}
+          </span>
+          )}
         </div>
       </div>
     </div>

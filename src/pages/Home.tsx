@@ -1,9 +1,9 @@
-import { themeColors } from "../utils/color/colorUtil";
-import CardItem from "../components/card/CardItem";
-import { HeartIcon, BagIcon } from "../utils/icons";
-import Button from "../components/buttons/Button";
 import { data } from "../data/dummyData";
+import { HeartIcon, BagIcon } from "../utils/icons";
 import { PREVIEW_NUMBER_SIZE } from "../utils/Numbers/constants";
+import { themeColors } from "../utils/color/colorUtil";
+import Button from "../components/buttons/Button";
+import CardItem from "../components/card/CardItem";
 import useCartItem from "../hooks/useCartItem";
 
 
@@ -12,7 +12,6 @@ const CUSTOM_TEXT = "At our store, you'll find the latest and greatest gadgets d
 const customTextStyle = { color: themeColors.textSection };
 
 const Home: React.FC = () => {
-
     //set tab name 
     document.title = "Home";
 
@@ -25,8 +24,7 @@ const Home: React.FC = () => {
     }
 
     const previewItems = data.slice(0, PREVIEW_NUMBER_SIZE);
-    console.log(previewItems);
-
+   
     return (
         <div className="flex p-10 flex-col gap-10 self-center min-h-screen">
             <div className="flex flex-col gap-4">
@@ -38,6 +36,7 @@ const Home: React.FC = () => {
             <div className="items-container flex flex-wrap gap-4">
                 {previewItems.map((item, index) => (
                     <CardItem
+                        item={item}
                         key={index}
                         size="sm"
                         title={item.name}

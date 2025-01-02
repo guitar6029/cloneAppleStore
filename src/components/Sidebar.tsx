@@ -5,14 +5,15 @@ import { MdAccountCircle } from "react-icons/md";
 import { PiLightningFill, PiBag } from "react-icons/pi";
 import { themeColors } from "../utils/color/colorUtil";
 import { isShoppingCartEmpty } from "../features/ShoppingCartSlice";
+import {  isFavoritesListEmpty } from "../features/FavoritesSlice";
 import { useSelector } from 'react-redux';
 const Sidebar = () => {
 
   const checkIfCartIsEmpty = useSelector(isShoppingCartEmpty);
-  console.log('checkIfCartIsEmpty', checkIfCartIsEmpty);
+  const checkIFFavoritesIsEmpty = useSelector( isFavoritesListEmpty);
 
 
-  const cartNotEmptyIndicatorStyle: React.CSSProperties = {
+  const indicatorStyle: React.CSSProperties = {
     width: "10px",
     height: "10px",
     borderRadius: "50%",
@@ -39,15 +40,17 @@ const Sidebar = () => {
         <CiSearch className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
 
         <Link to="/favorites">
+        <div className="flex flex-row"> 
           <CiHeart className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
-
+          {!checkIFFavoritesIsEmpty && <div style={indicatorStyle}></div>}
+        </div>
         </Link>
 
 
         <Link to="/cart">
           <div className="flex flex-row">
             <PiBag className="cursor-pointer rounded-full p-2 hover:bg-[#8d8c8a] hover:fill-white" size={50} color={themeColors.secondaryGray} />
-            {!checkIfCartIsEmpty && <div style={cartNotEmptyIndicatorStyle}></div>}
+            {!checkIfCartIsEmpty && <div style={indicatorStyle}></div>}
 
           </div>
         </Link>

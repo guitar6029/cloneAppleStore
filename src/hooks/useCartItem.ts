@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { addToCart, increaseQuantity, decreaseQuantity, clearShoppingCart } from "../features/ShoppingCartSlice";
 import { updateQuantity, resetQuantity } from "../features/DepartmentSlice";
+import { handleFavorites } from "../features/FavoritesSlice";
+import { clearFavoriteItems } from "../features/FavoritesSlice";
 
 
 const useCartItem = () => {
@@ -10,6 +12,10 @@ const useCartItem = () => {
     const clearCart = (itemsToClear: Array<any>) => {
         dispatch(clearShoppingCart());
         dispatch(resetQuantity(itemsToClear));
+    }
+
+    const clearFavorites = (itemsToClear: Array<any>) => {
+        dispatch(clearFavoriteItems())
     }
 
     const handleAction = (type: string, item: any) => {
@@ -30,6 +36,8 @@ const useCartItem = () => {
                 ))
         }
         else if (type === 'heart') {
+            //add to favorites
+            dispatch(handleFavorites(item));
 
         } else if (type === 'cart') {
             dispatch(addToCart(
@@ -46,12 +54,10 @@ const useCartItem = () => {
                 }
             ));
         } 
-        else {
-            console.log('Unknown type');
-        }
+        
     };
 
-    return { handleAction, clearCart };
+    return { handleAction, clearCart, clearFavorites };
 }
 
 
