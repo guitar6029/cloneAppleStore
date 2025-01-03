@@ -43,19 +43,21 @@ const CardItem = ({
   actionSecondary,
   viewItem
 }: CardItemsProps) => {
-  const icon1Ref = useRef(null);
-  const icon2Ref = useRef(null);
+  const icon1Ref = useRef<HTMLElement | null>(null);
+  const icon2Ref = useRef<HTMLElement | null>(null);
 
-  const handleClick = (event) => {
-    if (icon1Ref.current && icon1Ref.current.contains(event.target)) {
+  const handleClick = (event: React.MouseEvent) => {
+    const target = event.target as HTMLElement;
+
+    if (icon1Ref.current && icon1Ref.current.contains(target)) {
       return;
     }
-    if (icon2Ref.current && icon2Ref.current.contains(event.target)) {
+    if (icon2Ref.current && icon2Ref.current.contains(target)) {
       return;
     }
+
     viewItem(item);
   };
-
   const smallTitleStyle = {
     color: themeColors.tertiaryGray
   }

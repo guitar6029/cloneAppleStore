@@ -16,8 +16,8 @@ function App() {
   return (
 
     <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<Login />} />
+      {/* <Route path="/login" element={<LandingPage />} /> */}
+      <Route path="/" element={<Login />} />
       {/* Protected routes only for logged in users */}
       <Route path="/" element={< ProtectedRoute > <Layout /> </ProtectedRoute>} >
         <Route path="/home" element={<Home />} />
