@@ -58,10 +58,10 @@ const Home: React.FC = () => {
                 />
             )}
             <div className="flex p-10 flex-col gap-10 self-center min-h-screen">
-                <div className="flex flex-col gap-4">
-                    <h3 className="text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">LET&apos;S FIND THE</h3>
-                    <h3 style={{ color: themeColors.importantText }} className="text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">BEST EQUIPMENT</h3>
-                    <h3 className="text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">FOR YOU</h3>
+                <div className="flex flex-col  gap-4">
+                    <h3 className="text-base sm:text-left md:text-left sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">LET&apos;S FIND THE</h3>
+                    <h3 style={{ color: themeColors.importantText }} className="sm:text-center md:text-left text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">BEST EQUIPMENT</h3>
+                    <h3 className="sm:text-end md:text-left text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">FOR YOU</h3>
                 </div>
 
                 <div className="items-container flex flex-wrap gap-4">
@@ -87,11 +87,11 @@ const Home: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col gap-12">
-                    <p style={customTextStyle} className="text-2xl xs:text-sm sm:text-md md:text-lg xl:text-2xl">{CUSTOM_TEXT}</p>
+                    <p style={customTextStyle} className="text-2xl sm:text-md md:text-lg xl:text-2xl">{CUSTOM_TEXT}</p>
                 </div>
 
                 <div className="w-full flex flex-col gap-12">
-                    <Link to="/search">
+                    <Link to="/search" className="sm:w-full">
                         <Button onClick={handlePrimaryAction} text="Explore More" size="md" typeBtn="primary" />
                     </Link>
                 </div>
