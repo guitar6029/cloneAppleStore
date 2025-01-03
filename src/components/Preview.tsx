@@ -25,7 +25,7 @@ const Preview: React.FC<PreviewProps> = ({ selectedItem, isPreviewOpen, closePre
                     <IoMdClose size={30} />
                 </button>
                 <div className="flex flex-col items-center justify-center self-center gap-10">
-                    <h2 className="text-4xl  font-bold">{selectedItem.name}</h2>
+                    <h2 className="text-4xl sm:text-sm md:text-lg lg:text-2xl  font-bold">{selectedItem.name}</h2>
 
                     <div className="flex flex-row gap-2 justify-around">
                         <span className="p-4 bg-gray-200 rounded-full flex flex-row items-center justify-center">
@@ -43,7 +43,7 @@ const Preview: React.FC<PreviewProps> = ({ selectedItem, isPreviewOpen, closePre
 
                 </div>
                 <div className="p-10 items-center text-center flex flex-row gap-2">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam rem aspernatur ut harum odit repellat labore, placeat deserunt suscipit ullam voluptates, quam, facilis nobis natus quo unde eveniet velit ipsa non. Omnis consectetur deserunt nesciunt rem, aspernatur rerum optio qui.</p>
+                    <p className="text-base sm:text-md ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam rem aspernatur ut harum odit repellat labore, placeat deserunt suscipit ullam voluptates, quam, facilis nobis natus quo unde eveniet velit ipsa non. Omnis consectetur deserunt nesciunt rem, aspernatur rerum optio qui.</p>
                 </div>
 
                 <hr />

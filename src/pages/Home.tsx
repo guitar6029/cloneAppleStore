@@ -1,6 +1,6 @@
 import { data } from "../data/dummyData";
 import { HeartIcon, BagIcon } from "../utils/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { PREVIEW_NUMBER_SIZE } from "../utils/Numbers/constants";
 import { themeColors } from "../utils/color/colorUtil";
 import { useReducer, useMemo } from "react";
@@ -32,14 +32,10 @@ const Home: React.FC = () => {
     document.title = "Home";
 
     const { handleAction } = useCartItem();
-
+    const navigate = useNavigate();
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    const handlePrimaryAction = (event?: string) => {
-        if (event) {
-            console.log(event);
-        }
-    }
+    
 
     const previewItems = useMemo(() => {
         const items = data.slice(0, PREVIEW_NUMBER_SIZE);
@@ -57,7 +53,7 @@ const Home: React.FC = () => {
                     closePreview={() => dispatch({ type: 'CLOSE_PREVIEW' })}
                 />
             )}
-            <div className="flex p-10 flex-col gap-10 self-center min-h-screen">
+            <div className="flex p-10 flex-col gap-10 self-center justify-around min-h-screen">
                 <div className="flex flex-col  gap-4">
                     <h3 className="text-base sm:text-left md:text-left sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">LET&apos;S FIND THE</h3>
                     <h3 style={{ color: themeColors.importantText }} className="sm:text-center md:text-left text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-7xl text-white font-extrabold">BEST EQUIPMENT</h3>
@@ -92,7 +88,7 @@ const Home: React.FC = () => {
 
                 <div className="w-full flex flex-col gap-12">
                     <Link to="/search" className="sm:w-full">
-                        <Button onClick={handlePrimaryAction} text="Explore More" size="md" typeBtn="primary" />
+                        <Button onClick={() => navigate('/search')} text="Explore More" size="md" typeBtn="primary" />
                     </Link>
                 </div>
             </div>

@@ -67,12 +67,16 @@ const Search = () => {
                                     dispatch({ type: "SEARCH", payload: e.currentTarget.value });
                                 }
                             }}
+                            value={state.search}
+                            onChange={(e) => dispatch({ type: "SEARCH", payload: e.target.value })}
                             className="rounded-lg outline-gray-600 focus:outline-[#7b7577] p-2 w-full bg-black text-white text-2xl"
                             type="text"
                             name="search"
                             id="search"
                         />
-                        <IoMdClose onClick={() => dispatch({ type: "CLEAR_SEARCH" })}  size={30} className="text-white cursor-pointer" />
+                        {state.search && (
+                            <IoMdClose onClick={() => dispatch({ type: "CLEAR_SEARCH" })}  size={30} className="text-white cursor-pointer" />
+                        )}
                     </div>
                 </div>
                 <div className="flex flex-col gap-4 p-10">
