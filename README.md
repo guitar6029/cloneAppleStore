@@ -6,7 +6,7 @@ A modern e-store concept built using **React**, **Tailwind CSS**, and **Auth0** 
 
 ## Inspiration
 
-Hello! I took the concept design from Dribbble. I found a very cool design from [Bato Web Agency](https://dribbble.com/batowebagency) and used it as a reference to build this project. Make sure to check them out:
+Hello! I took the concept design from Dribbble. I found a very cool design from [Bato Web Agency]( https://dribbble.com/batowebagency )  and used it as a reference to build this project. Make sure to check them out:
 - [Apple E-store Concept](https://dribbble.com/shots/21287609-Apple-E-store-Concept)
 
 ## Features
