@@ -7,6 +7,7 @@ import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import { themeColors } from '../utils/color/colorUtil';
 import useCartItem from "../hooks/useCartItem";
 import Button from '../components/buttons/Button';
+import { IoMdClose } from "react-icons/io";
 
 const Cart: React.FC = () => {
   const cartItems = useSelector((state: RootState) => getCartItems(state));
@@ -28,20 +29,23 @@ const Cart: React.FC = () => {
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
             <div key={item.id} className="grid grid-cols-3 gap-4 p-4 rounded-lg bg-[#4d4d4f] hover:bg-[#5B5B5D] transition duration-300 ease-out">
+              <div className="flex flex-row items-center gap-2">
               <span className="text-white self-center">{item.name}</span>
+              <span style={priceStyle} >${item.price}</span>
+              </div>
               <div className="flex flex-row items-center justify-center gap-2">
                 <CiCircleMinus onClick={() => handleAction('decreaseQuantity', item)} size={30} className="cursor-pointer text-white" />
                 <span className="text-white">{item.quantity}</span>
                 <CiCirclePlus onClick={() => handleAction('increaseQuantity', item)} size={30} className="cursor-pointer text-white" />
               </div>
-              <span style={priceStyle} className="self-center justify-self-end font-semibold">${item.price * item.quantity}</span>
+                <IoMdClose onClick={() => handleAction('removeItem', item)} size={30} className="self-center justify-self-end font-semibold cursor-pointer hover:scale-105 transition duration-300 ease-in" />
             </div>
           ))
 
         ) : (
           <div className="flex justify-center p-10">
             <span className="text-white text-base xl:text-2xl lg:text-xl md:text-lg">
-              Your cart is empty. Go find something to buy
+              Your cart is empty.
             </span>
           </div>
         )}

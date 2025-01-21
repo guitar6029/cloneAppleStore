@@ -13,63 +13,56 @@ export interface ShoppingCartState {
     shoppingCart: Array<ShoppingCartItem>;
 }
 
-
+// Retrieve the initial state from localStorage if it exists
+const storedCart = localStorage.getItem('cartItems');
 const initialState: ShoppingCartState = {
-    shoppingCart: [],
+    shoppingCart: storedCart ? JSON.parse(storedCart) : [],
 };
 
 export const shoppingCartSlice = createSlice({
     name: "shoppingCart",
     initialState,
     reducers: {
-        clearShoppingCart: (state ) => {
-            state.shoppingCart = [];  
+        clearShoppingCart: (state) => {
+            state.shoppingCart = [];
+            localStorage.setItem('cartItems', JSON.stringify([]));
         },
         increaseQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
-          //first check if the item exists
-          const existingItem = state.shoppingCart.find(item => item.id === action.payload.id);
-          if (existingItem) {
-            // if exists , then increment the quantity +1
-            existingItem.quantity += 1;
-          }  
+            const existingItem = state.shoppingCart.find(item => item.id === action.payload.id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+                localStorage.setItem('cartItems', JSON.stringify(state.shoppingCart));
+            }
         },
         decreaseQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
-            // check if the item exists
             const existingItem = state.shoppingCart.find(item => item.id === action.payload.id);
-           if (existingItem) {
-            if (existingItem.quantity === 1) {
-                // do not decrease quantity if quantity is 1
-                return
+            if (existingItem) {
+                if (existingItem.quantity > 1) {
+                    existingItem.quantity -= 1;
+                    localStorage.setItem('cartItems', JSON.stringify(state.shoppingCart));
+                }
             }
-            // if exists, then decrease by -1
-            existingItem.quantity -= 1;
-           } 
         },
         addToCart: (state, action: PayloadAction<any>) => {
             const existingItem = state.shoppingCart.find(item => item.id === action.payload.id);
             if (existingItem) {
-                // If the item exists, increment the quantity
                 existingItem.quantity += 1;
             } else {
-                // If the item doesn't exist, add it with quantity: 1
                 state.shoppingCart.push({ ...action.payload, quantity: 1 });
             }
-
+            localStorage.setItem('cartItems', JSON.stringify(state.shoppingCart));
         },
         removeFromShoppingCart: (state, action: PayloadAction<any>) => {
             state.shoppingCart = state.shoppingCart.filter((item: any) => item.id !== action.payload);
+            localStorage.setItem('cartItems', JSON.stringify(state.shoppingCart));
         }
-       
     }
-})
-
+});
 
 export const { clearShoppingCart, increaseQuantity, decreaseQuantity, addToCart, removeFromShoppingCart } = shoppingCartSlice.actions;
 
-//getter for shopping cart items
 export const getCartItems = (state: RootState) => state.cart.shoppingCart;
 
-// check if shopping cart is empty
 export const isShoppingCartEmpty = (state: RootState) => state.cart.shoppingCart.length === 0;
 
 export default shoppingCartSlice.reducer;
