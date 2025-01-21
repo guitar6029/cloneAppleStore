@@ -22,7 +22,7 @@ const Favorites: React.FC = () => {
             <div className="flex flex-col gap-4 p-10">
                 {favoriteItems.length > 0 ? (
                     favoriteItems.map((item) => (
-                        <div key={item.id} className="grid grid-cols-3 gap-4 p-4 rounded-lg bg-[#4d4d4f] hover:bg-[#5B5B5D] transition duration-300 ease-out">
+                        <div key={item.id} className="flex flex-row items-center justify-between gap-4 p-4 rounded-lg bg-[#4d4d4f] hover:bg-[#5B5B5D] transition duration-300 ease-out">
                             <span className="text-white self-center">{item.name}</span>
                             <span className="text-white self-center justify-self-end font-semibold">${item.price}</span>
                         </div>
