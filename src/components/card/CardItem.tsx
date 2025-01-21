@@ -29,7 +29,6 @@ type CardItemsProps = {
 
 const CardItem = ({
   item,
-  size = "sm",
   title,
   smallTitle,
   price,

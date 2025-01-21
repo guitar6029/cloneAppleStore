@@ -23,7 +23,7 @@ export const departmentSlice = createSlice({
     name: "department",
     initialState,
     reducers: {
-        resetQuantity: ( state, action: PayloadAction<Array<DepartmentItem>>) => {
+        resetQuantity: ( state) => {
           // reset quantity values for the items in the payload
           state.items = state.items.map(item => ({ ...item, quantity: item.originalQuantity}));
         },

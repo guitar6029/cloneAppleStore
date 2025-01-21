@@ -48,7 +48,7 @@ const Cart: React.FC = () => {
         {cartItems.length > 0 && (
           <div className="flex lg:flex-row sm:flex-col sm:gap-5 items-center justify-between">
 
-            <Button className="bg-white hover:bg-red-500" text="CLEAR CART" typeBtn="primary" onClick={() => clearCart(cartItems)} size="md" />
+            <Button className="bg-white hover:bg-red-500" text="CLEAR CART" typeBtn="primary" onClick={() => clearCart()} size="md" />
             <div className="flex flex-row gap-4">
               <span className="text-white text-base sm:text-sm md:text-4xl lg:text-2xl xl:text-7xl font-bold ">TOTAL :</span>
               <span className="text-white text-base sm:text-sm md:text-4xl lg:text-2xl xl:text-7xl font-bold ">${cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toLocaleString()}</span>

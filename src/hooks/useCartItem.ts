@@ -9,12 +9,12 @@ const useCartItem = () => {
 
     const dispatch = useDispatch();
 
-    const clearCart = (itemsToClear: Array<any>) => {
+    const clearCart = () => {
         dispatch(clearShoppingCart());
-        dispatch(resetQuantity(itemsToClear));
+        dispatch(resetQuantity());
     }
 
-    const clearFavorites = (itemsToClear: Array<any>) => {
+    const clearFavorites = () => {
         dispatch(clearFavoriteItems())
     }
 
